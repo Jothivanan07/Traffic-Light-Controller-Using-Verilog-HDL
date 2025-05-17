@@ -31,12 +31,13 @@ Capture screenshots of the waveform and save the simulation logs to include in y
 
 Verilog Code for Traffic Light Controller
 
-// traffic_light_controller.v
-module traffic_light_controller (
+
+    module traffic_light_controller (
     input wire clk,
     input wire reset,
-    output reg [2:0] lights  // 3-bit output: [2]=Red, [1]=Yellow, [0]=Green
-);
+    output reg [2:0] lights  // 3-bit output: [2]=Red, [1]=Yellow, 
+    [0]=Green
+    );
     // Define states
     typedef enum reg [1:0] {
         GREEN = 2'b00,
@@ -83,15 +84,13 @@ module traffic_light_controller (
             end
         endcase
     end
-endmodule
+    endmodule
 
 Testbench for Traffic Light Controller
 
-// traffic_light_controller_tb.v
-`timescale 1ns / 1ps
+// traffic_light_controller_tb.v`timescale 1ns / 1ps
 
-module traffic_light_controller_tb;
-
+    module traffic_light_controller_tb;
     // Inputs
     reg clk;
     reg reset;
@@ -126,9 +125,9 @@ module traffic_light_controller_tb;
     initial begin
         $monitor("Time=%0t | Lights (R Y G) = %b", $time, lights);
     end
+    endmodule
+![image](https://github.com/user-attachments/assets/49b822ea-0cfb-40f6-9050-28c0eaa0a82d)
 
-endmodule
 
-
-Conclusion
+Conclusion :
 In this experiment, a traffic light controller was successfully designed and simulated using Verilog HDL. The design controlled the traffic lights to switch between Green, Yellow, and Red in a cyclic manner based on timing intervals. The testbench verified that the traffic lights followed the correct sequence and timing. The simulation results confirm the correct functionality of the traffic light controller, demonstrating the effectiveness of Verilog HDL in designing FSM-based controllers for real-world applications.
